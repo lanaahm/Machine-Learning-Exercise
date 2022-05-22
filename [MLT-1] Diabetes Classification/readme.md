@@ -7,11 +7,11 @@
 </p>
 
 <p align='justify'>
-Diabetes adalah salah satu penyakit kronis yang mengancam jiwa dengan pertumbuhan tercepat yang telah mempengaruhi 422 juta jiwa di seluruh dunia menurut laporan World Health Organization (WHO), pada tahun 2018. Diabetes merupakan masalah kesehatan masyarakat yang menjadi salah satu dari empat penyakit tidak menular prioritas yang menyebabkan peningkatan gula darah serta banyak komplikasi yang terjadi jika diabetes tidak diobati atau tidak teridentifikasi<a href="#ref7">[7]</a>. Hal tersebut juga merupakan tujuan yang ditindak lanjuti para pemimpin dunia termasuk organisasi internasional seperti World Health Organization (WHO), sebuah badan Perserikatan Bangsa-Bangsa (PBB) yang telah menetapkan Sustainable Development Goals (SDGs) pada kategori Good Health and Well-being. Menurut laporan WHO jumlah kasus diabetes terus meningkat selama beberapa tahun terakhir<a href="#ref6">[6]</a>.
+Diabetes adalah salah satu penyakit kronis yang mengancam jiwa dengan pertumbuhan tercepat yang telah mempengaruhi 422 juta jiwa di seluruh dunia menurut laporan World Health Organization (WHO), pada tahun 2018. Diabetes merupakan masalah kesehatan masyarakat yang menjadi salah satu dari empat penyakit tidak menular prioritas yang menyebabkan peningkatan gula darah serta banyak komplikasi yang terjadi jika diabetes tidak diobati atau tidak teridentifikasi <a href="#ref7">[7]</a>. Hal tersebut juga merupakan tujuan yang ditindak lanjuti para pemimpin dunia termasuk organisasi internasional seperti World Health Organization (WHO), sebuah badan Perserikatan Bangsa-Bangsa (PBB) yang telah menetapkan Sustainable Development Goals (SDGs) pada kategori Good Health and Well-being. Menurut laporan WHO jumlah kasus diabetes terus meningkat selama beberapa tahun terakhir <a href="#ref6">[6]</a>.
 </p>
 
 <p align='justify'>
-WHO memperkirakan secara global, 422 juta orang dewasa di atas usia 18 tahun menderita diabetes. Jumlah terbesar penderita diabetes diperkirakan berasal dari Asia Tenggara dan Pasifik Barat. Herwindo et al, 2018. Memaparkan bahwa terdapat seorang wanita yang melahirkan anak pertamanya yang dikonsultasikan dengan peningkatan gula darah setelah melahirkan. Pasien dan keluarganya tidak memiliki riwayat penyakit diabetes pada anamnesis dan pemeriksaan fisik. Pengamatan dan temuan laboratorium menunjukkan bahwa pasien menderita diabetes sebelum kehamilan, tetapi hal ini tidak terkonfirmasi melalui tes pemeriksaan<a href="#ref5">[5]</a>.
+WHO memperkirakan secara global, 422 juta orang dewasa di atas usia 18 tahun menderita diabetes. Jumlah terbesar penderita diabetes diperkirakan berasal dari Asia Tenggara dan Pasifik Barat. Herwindo et al, 2018. Memaparkan bahwa terdapat seorang wanita yang melahirkan anak pertamanya yang dikonsultasikan dengan peningkatan gula darah setelah melahirkan. Pasien dan keluarganya tidak memiliki riwayat penyakit diabetes pada anamnesis dan pemeriksaan fisik. Pengamatan dan temuan laboratorium menunjukkan bahwa pasien menderita diabetes sebelum kehamilan, tetapi hal ini tidak terkonfirmasi melalui tes pemeriksaan <a href="#ref5">[5]</a>.
 </p>
 
 <p align='justify'>
@@ -50,7 +50,7 @@ Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini adalah sebagai
   - Melakukan pembagian dataset menjadi dua bagian dengan rasio 80% untuk data latih dan 20% untuk data uji
   - Melakukan normalisasi pada fitur data numerik.
 
-    Poin pemrosesan data akan dibahas lebih lanjut pada bagian `Data Preparation`.
+    Poin pemrosesan data akan dibahas lebih lanjut pada bagian [Data Preparation](#predata).
 - Melakukan pengujian pada beberapa algoritma yang sudah disebutkan dan mencari hasil yang terbaik berdasakan hasil dari matrik evaluasi.
 - Membandingkan serta mencari nilai yang terbaik dari beberapa algoritma terhadap matrik evaluasi, antara lain `Accuracy`, `F1-score`, `Precision`, dan `Recall`.
 
@@ -65,7 +65,9 @@ Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini adalah sebagai
 | Rating Penggunaan | 10.0 (Gold) |
 | Lisensi | CC0: Public Domain |
 
-Penjelasan mengenai variabel-variable pada data diabetes dapat dilihat pada poin-poin berikut:
+<p align='justify'>
+Berkas yang digunakan pada proyek ini adalah data konsultasi pasien diabetes dengan jenis kelamin wanita berusia minimal 21 tahun dari keturunan Pima India. Data tersebut dibuat dalam format Comma Separated Values (CSV) dengan ukuran 525kb dan didalamnya terdapat 768 data konsultasi pasien. Data konsultasi pasein memiliki 7 bertipe numerik (int64) dan 2 buah data bertipe numerik (float64). Data tersebut terlihat cukup rapih karena tidak ada nilai data yang hilang tetapi data tersebut memiliki data yang berisikan nilai 0 seperti pada data <code>Glucose</code>, <code>BloodPressure</code>, dan <code>BMI</code> dimana data tersebut seharusnya bukan bernilai 0. Penjelasan mengenai variabel-variable pada data diabetes dapat dilihat pada poin-poin berikut:
+</p>
 
 - `Pregnancies`: Jumlah berapa kali hamil
 - `Glucose`: Konsentrasi glukosa plasma 2 jam dalam tes toleransi glukosa oral
@@ -77,19 +79,46 @@ Penjelasan mengenai variabel-variable pada data diabetes dapat dilihat pada poin
 - `Age`: Usia (tahun)
 - `Outcome`: Variabel kelas (0 atau 1) yang menandakan diabetes atau tidak
 
-### Visualisasi pada masing - masing fitur kategori
+### Visualisasi Univariate Analysis
+Tujuan dari dibuatnya visualsasi univariate analysis pada data konsultasi diabetes ini adalah untuk mengetahui sebaran distribusi sebelum dilakukan proses perhitungan pada model algoritma untuk mengetahui hasil prediksi yang optimal. univariate analysis pada proyek ini akan menjelaskan data pada dataset diabetes antara lain:
+
+#### Categorical Features
 ![image](https://user-images.githubusercontent.com/57904007/169673571-7bd4e501-7145-4e84-9a3e-44ae8abf1284.png)
 
-### Visualisasi pada masing - masing fitur numerik
+Dapat dilihat pada tampilan visualisasi beberapa fitur data diatas memiliki distribusi data yang bervariasi yang akan dijelaskan sebagai berikut:
+- Data Glucose, data tersebut merupakan data konsultasi pasien dapat dilihat sebaran data terbanyak pada kategori prediabetic dikisaran angka 250, data pasein pada kategori diabetic dikisaran angka 200-250, dan data pasein pada kategori non diabetic berada pada dikisaran 180.
+- Data BloodPressure, data tersebut merupakan data pasien dengan beberapa kategori dilihat sebaran data terbanyak pada kategori normal dikisaran angka 500, data pasein yang mengalami perhepertensi dikisaran angka 100, dan data pasein hepertensi berada pada dikisaran 50-100.
+- Data Insulin, data tersebut merupakan data pasien dengan 2 kategori Abnormal dan Normal. Pada kategori abnormal berada dikisaran angka 400 dan data pasein kategori normal berada pada dikisaran 250.
+- Data BMI, data tersebut merupakan data pasien dengan beberapa kategori dilihat sebaran data pasien terbanyak pada kategori Obesity dikisaran angka 400, data pasein pada kategori Overweight dikisaran angka 150, data pasein pada kategori Healty Weight dikisaran angka 100, dan data pasein Underweight berada pada dikisaran 10.
+
+#### Numerical Features
 ![image](https://user-images.githubusercontent.com/57904007/169673595-b94dff22-3dc7-42ce-953a-356710150bd6.png)
 
-### Visualisasi pada masing - masing fitur kategori terhadap hasil diabetes
+Dapat dilihat pada tampilan visualisasi beberapa fitur data diatas memiliki distribusi data yang bervariasi yang akan dijelaskan sebagai berikut:
+- Data Pregnancies, data tersebut merupakan data konsultasi pasien dengan jumlah kehasilan yang dilaporan dapat dilihat sebaran data pasien yang belum pernah mengalami kehamilan berada pada kirasan angka 100, pasien yang pernah mengalami kehamilan 2 kali berada pada kirasan angka 120 pasien, dan seterusnya.
+- Data SkinThickness, data tersebut merupakan data konsultasi pasien dengan banyak ukuran ketebalan lemak pada dimensi (mm). Pasien yang tidak memiliki ketebalan lemak dengan jumlah 200 dan seterusnya.
+- DiabetesPedigreeFunction, data tersebut merupakan data konsultasi pasien dengan silsilah diabetes. Pasien yang memiliki silsilah diabetes 0.2 berada pada kisaran angka 20 dan seterusnya.
+- Age, data tersebut merupakan data konsultasi pasien dengan rentan umur. Pasien yang memiliki rentang umur 20 dengan jumlah angka dikirasan 50 pasien, pasien yang memiliki umur 30 dengan jumlah angka dikirasan 20 pasien dan seterusnya.
+
+### Visualisasi Multivariate Analysis
+Multivariate merupakan hubungan antara dua atau lebih variabel pada data. Multivariate menunjukkan hubungan antara dua variabel biasa disebut sebagai bivariate EDA. Tujuan dari dibuatnya visualsasi univariate analysis pada data konsultasi diabetes ini adalah untuk mengetahui hubungan pada setia data konsultasi pasien terhadap hasil diabetes.
+
+#### Hubungan antara data categorical features terhadap hasil diabetes
 ![image](https://user-images.githubusercontent.com/57904007/169673831-63a5d7b5-bec8-497b-8a05-2bd8ea5c3dcd.png)
 
-### Visualisasi korelasi pada masing - masing fitur numerik
+Dapat dilihat pada tampilan visualisasi beberapa fitur data diatas memiliki hubungan terhadap hasil diagnosa diabtes yang akan dijelaskan sebagai berikut:
+- Data Glucose, data tersebut menunjukan data pasien dengan beberapa kategori yang memiliki hubungan terhadap hasil diagnosa diabetes. Data pasien pada kategori Diabetic memiliki hubungan dengan hasil diabetes yang berada pada kisaran angka 0.5 - 0.6, Data pasien pada kategori non diabetic memiliki hubungan dengan hasil diabetes yang berada pada kisaran angka 0.1, dan Data pasien pada kategori prediabetic memiliki hubungan dengan hasil diabetes yang berada pada kisaran angka 0.2. 
+- Data BloodPressure, data tersebut menunjukan data tekanan darah pasien dengan beberapa kategori yang memiliki hubungan terhadap hasil diagnosa diabetes. Data pasien pada kategori hypertension memiliki hubungan dengan hasil diabetes yang berada pada kisaran angka 0.5, Data pasien pada kategori normal memiliki hubungan dengan hasil diabetes yang berada pada kisaran angka 0.3, dan Data pasien pada kategori prehypertension memiliki hubungan dengan hasil diabetes yang berada pada kisaran angka 0.4.
+- Data Insulin, data tersebut menunjukan data hasil pemberian insulin serum selama 2 Jam pada pasien dengan beberapa kategori yang memiliki hubungan terhadap hasil diagnosa diabetes. Data pasien pada kategori abnormal memiliki hubungan dengan hasil diabetes yang berada pada kisaran angka 0.3-0.4 dan Data pasien pada kategori normal memiliki hubungan dengan hasil diabetes yang berada pada kisaran angka 0.2.
+- Data BMI, data tersebut menunjukan data index masa tubuh pasien dengan beberapa kategori yang memiliki hubungan terhadap hasil diagnosa diabetes. Data pasien pada kategori healty weight memiliki hubungan dengan hasil diabetes yang berada pada kisaran angka 0.1, Data pasien pada kategori obesity memiliki hubungan dengan hasil diabetes yang berada pada kisaran angka 0.4, Data pasien pada kategori overweight memiliki hubungan dengan hasil diabetes yang berada pada kisaran angka 0.2, dan Data pasien pada kategori underweight memiliki hubungan dengan hasil diabetes yang berada pada kisaran angka 0.0.
+
+<h4 id='korelasi'>Korelasi Numerical Features </h4>
+
 ![image](https://user-images.githubusercontent.com/57904007/169673850-1c117af2-2e6b-4605-89e1-38aa10ceb4a2.png)
 
-## Data Preparation
+Dapat dilihat pada tampilan visualisasi korelasi fitur data diatas. Korelasi mengukur kekuatan hubungan antara dua variabel serta arahnya (positif atau negatif). Mengenai kekuatan hubungan antar variabel, semakin dekat nilainya ke 1 atau -1, korelasinya semakin kuat. Sedangkan, semakin dekat nilainya ke 0, korelasinya semakin lemah. 
+
+<h2 id='predata'>Data Preparation</h2>
 Seperti yang sudah disebutkan sebelumnya pada bagian Solution statements, berikut adalah tahapan-tahapan dalam melakukan pemrosesan data:
 
 - Mengisi data yang bernilai 0 dengan nilai rata rata (_mean substitution_) dan nilai yang sering keluar (_mode substitution_).
@@ -111,10 +140,12 @@ Dari visualisasi Blox Plot diatas dapat dilihat masih banyak fitur data yang men
 
 - konversi kategori data pada beberapa fitur
 Dari dataset diabetes yang digunakan pada proyek ini memiliki beberapa fitur data yang meruapakan data kategori namun masih dalam bentuk numerik sehingga beberapa data tersebut mengalami outliers beberapa fitur tersebut antara lain:. 
-  - `Glucose`: Artikel "Glucose Tolerance Testing: Reference Range, Interpretation, Collection and Panels" menjelaskan bahwa glucose tolerance digunakan untuk mengevaluasi kemampuan untuk mengatur metabolisme glukosa dan diindikasikan ketika tes glukosa darah untuk dilakukan diagnosis. Fitur Glucose pada dataset ini adalah data numerik dengan range Konsentrasi glukosa plasma 2 jam nilai numerik tersebut sudah ditentukan pada setiap kategori seperti yang dijelaskan pada artikel<a href="#ref1">[1]</a>.
-  - `BloodPressure`: Artikel "High Blood Pressure Symptoms and Causes" mejelaskan bahwa tekanan darah akan berubah sepanjang hari berdasarkan aktivitas yang dilakukan. fitur BloodPressure pada dataset ini adalah data numerik. Nilai numerik tersebut sudah ditentukan pada setiap kategori seperti yang sudah dijelaskan dalam artikel<a href="#ref4">[4]</a>.
-  - `Insulin`: Artikel "Insulin: Reference Range, Interpretation, Collection and Panels" menjelaskan bahwa Insulin adalah hormon anabolik yang mendorong pengambilan glukosa, glikogenesis, lipogenesis, dan sintesis protein otot rangka dan jaringan lemak melalui jalur reseptor tirosin kinase. Fitur Insulin pada dataset ini adalah data numerik dengan range 2 jam setelah pemberian glukosa yang bernilai numerik. Artikel tersebut mejelaskan bahwa nilai insulin berada pada range 16-166 mIU/L sepetelah 2 jam setelah pemberian glukosa untuk kategori normal<a href="#ref3">[3]</a>.
-  - `BMI`: Artikel "About Adult BMI | Healthy Weight, Nutrition, and Physical Activity" mejelaskan bahwa BMI adalah metode pemeriksaan yang mudah untuk mengetahui kategori berat badan. fitur BMI pada dataset ini adalah data numerik. Nilai numerik tersebut sudah ditentukan pada setiap kategori seperti untuk dapat menetahui kondisi kategori berat badan<a href="#ref2">[2]</a>.
+  - `Glucose`: Artikel "Glucose Tolerance Testing: Reference Range, Interpretation, Collection and Panels" menjelaskan bahwa glucose tolerance digunakan untuk mengevaluasi kemampuan untuk mengatur metabolisme glukosa dan diindikasikan ketika tes glukosa darah untuk dilakukan diagnosis. Fitur Glucose pada dataset ini adalah data numerik dengan range Konsentrasi glukosa plasma 2 jam nilai numerik tersebut sudah ditentukan pada setiap kategori seperti yang dijelaskan pada artikel <a href="#ref1">[1]</a>.
+  - `BloodPressure`: Artikel "High Blood Pressure Symptoms and Causes" mejelaskan bahwa tekanan darah akan berubah sepanjang hari berdasarkan aktivitas yang dilakukan. fitur BloodPressure pada dataset ini adalah data numerik. Nilai numerik tersebut sudah ditentukan pada setiap kategori seperti yang sudah dijelaskan dalam artikel <a href="#ref4">[4]</a>.
+  - `Insulin`: Artikel "Insulin: Reference Range, Interpretation, Collection and Panels" menjelaskan bahwa Insulin adalah hormon anabolik yang mendorong pengambilan glukosa, glikogenesis, lipogenesis, dan sintesis protein otot rangka dan jaringan lemak melalui jalur reseptor tirosin kinase. Fitur Insulin pada dataset ini adalah data numerik dengan range 2 jam setelah pemberian glukosa yang bernilai numerik. Artikel tersebut mejelaskan bahwa nilai insulin berada pada range 16-166 mIU/L sepetelah 2 jam setelah pemberian glukosa untuk kategori normal <a href="#ref3">[3]</a>.
+  - `BMI`: Artikel "About Adult BMI | Healthy Weight, Nutrition, and Physical Activity" mejelaskan bahwa BMI adalah metode pemeriksaan yang mudah untuk mengetahui kategori berat badan. fitur BMI pada dataset ini adalah data numerik. Nilai numerik tersebut sudah ditentukan pada setiap kategori seperti untuk dapat menetahui kondisi kategori berat badan <a href="#ref2">[2]</a>.
+
+- Menghapus data yang memiliki korelasi lemah. seperti yang dapat dilihat pada <a href='#korelasi'>korelasi data</a> fitur pada data `SkinThickness` memiliki hubungan korelasi yang lemah terhadap hasil diagnosa diabetes maka data tersebut akan dilakukan penghapusan sebelum pelagukan perhitungan prediksi pada algoritma agar algoritma dapat melakukan prediksi dengan optimal.
 
 - Melakukan pembagian dataset menjadi dua bagian dengan rasio 80% untuk data latih dan 20% untuk data uji
 Menurut Raschka, 2018. melakukan pembagian dataset menjadi data latih dan data uji adalah cara yang tepat menghindari terjadinya <i>overfitting</i> atau memperkecil tingkat kesalahan akurasi prediksi pada model, Dengan kata lain. Tidak bisa mengatakan apakah tingkat akurasi model menjadi bagus tetapi untuk menggeneralisasi prediksi pada model dengan data yang tidak diketahui pada proses pengujian <a href="#ref9">[9]</a>.
@@ -130,7 +161,7 @@ Normalisasi data merupakan proses pembentukan struktur data sehingga dapat mengh
 Setelah melakukan pemrosesan data yang baik maka data tesebut akan dilakukan pengujian dengan model algoritma berikut:
 - K-Nearest Neighbor
 
-  Algoritma K-NN adalah metode klasifikasi yang menggunakan algoritma supervised terhadap sekumpulan data berdasarkan pembelajaran data yang sudah diklasifikasikan pada sebelumnya.
+  Algoritma K-NN adalah metode klasifikasi yang menggunakan algoritma supervised terhadap sekumpulan data berdasarkan pembelajaran data yang sudah diklasifikasikan pada sebelumnya. KNN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat (dengan k adalah sebuah angka positif).
   
   - Kelebihan Algoritma K-NN:
     - Algoritma K-NN kuat dalam mentraining data yang noisy.
@@ -141,12 +172,25 @@ Setelah melakukan pemrosesan data yang baik maka data tesebut akan dilakukan pen
     - Algoritma K-NN perlu menentukan nilai parameter K.
     - Sensitif pada data pencilan.
     - Rentan pada variabel yang non-informatif.
+  
+  - Paremeter Algoritma K-NN:
+    - n_neighbors: proyek ini melakukan inisialisai nilai n_neighbors atau jumlah tetangga yang akan melakukan dengan perbandingan tetangga sebanyak 10.
 
 - Random Forest
 Random Forest adalah algoritma dalam machine learning yang digunakan untuk pengklasifikasian data set dalam jumlah besar. Karena fungsinya bisa digunakan untuk banyak dimensi dengan berbagai skala dan performa yang tinggi. kelebihan dan kekurangan pada Algoritma Random Forest. Kelebihannya yaitu dapat mengatasi noise dan missing value serta dapat mengatasi data dalam jumlah yang besar. Dan kekurangan pada algoritma Random Forest yaitu interpretasi yang sulit dan membutuhkan tuning model yang tepat untuk data.
 
+  - Paremeter Algoritma Random Forest:
+    - n_estimators: jumlah trees (pohon) di forest. Proyek ini melakukan inisialisai nilai n_estimator=50.
+    - max_depth: kedalaman atau panjang pohon yang merupakan ukuran seberapa banyak pohon dapat membelah (splitting) untuk membagi setiap node ke dalam jumlah pengamatan yang diinginkan. Proyek ini melakukan inisialisai nilai max_depth=16
+    - random_state: digunakan untuk mengontrol random number generator yang digunakan. Proyek ini melakukan inisialisai nilai n_estimator=55.
+    - n_jobs: : jumlah job (pekerjaan) yang digunakan secara paralel yang merupakan komponen untuk mengontrol thread atau proses yang berjalan secara paralel. n_jobs=-1 artinya semua proses berjalan secara paralel.
+
 - AdaBoost
 Metode AdaBoost merupakan salah satu algoritma supervised pada data mining yang diterapakan secara luas untuk membuat model klasifikasi. Metode adaBoost merupakan salah satu teknik ensamble dengan menggunakan loss function fungsi exponential untuk memperbaiki tingkat akurasi dari prediksi yang dibuat.
+
+  - Paremeter Algoritma Random Forest:
+    - learning_rate: bobot yang diterapkan pada setiap regressor di masing-masing proses iterasi boosting. Proyek ini melakukan inisialisai nilai learning_rate=0.05.
+    - random_state: digunakan untuk mengontrol random number generator yang digunakan. Proyek ini melakukan inisialisai nilai n_estimator=55.
 
 Hasil evaluasi matrix pada setiap algoritma dalam melakukan prediksi diabetes dapat dilihat pada tabel dibawah ini.
 ![image](https://user-images.githubusercontent.com/57904007/169675933-72b55e8a-bc41-4332-9fb6-7ddc1c1471a2.png)
@@ -208,7 +252,7 @@ Berikut merupakan hasil evaluasi matrix pada setiap algoritma berserta penjelasa
   ```
  
 ## References
-<ul>
+<ul type='None'>
   <li>
     <a id="ref1"></a>
     [1] Glucose Tolerance Testing: Reference Range, Interpretation, Collection and Panels [Internet]. Tersedia pada: <a href='https://emedicine.medscape.com/article/2049402-overview'>https://emedicine.medscape.com/article/2049402-overview</a>.
@@ -235,7 +279,7 @@ Berikut merupakan hasil evaluasi matrix pada setiap algoritma berserta penjelasa
   </li>
   <li>
     <a id="ref7"></a>
-    [7] Kemenkes RI. InfoDatin Pusat Data dan Informasi Kementerian Kesehatan RI Title proper: InfoDatin Pusat Data dan Informasi. 15 April 2018 [dikutip 21 Mei 2022]; Tersedia pada: <a href='https://pusdatin.kemkes.go.id/resources/download/pusdatin/infodatin/infodatin-Diabetes-2018.pdf'>https://pusdatin.kemkes.go.id/resources/download/pusdatin/infodatin/infodatin-Diabetes-2018.pdf</a>
+    [7] Kemenkes RI. InfoDatin Pusat Data dan Informasi Kementerian Kesehatan RI Title proper: InfoDatin Pusat Data dan Informasi. 15 April 2018. Tersedia pada: <a href='https://pusdatin.kemkes.go.id/resources/download/pusdatin/infodatin/infodatin-Diabetes-2018.pdf'>https://pusdatin.kemkes.go.id/resources/download/pusdatin/infodatin/infodatin-Diabetes-2018.pdf</a>
   </li>
   <li>
     <a id="ref8"></a>
